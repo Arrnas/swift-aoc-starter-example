@@ -7,12 +7,16 @@ import XCTest
 final class Day01Tests: XCTestCase {
   // Smoke test data provided in the challenge question
   let testData = """
-    vqxqnzrpqvtdtmgndhs7eightnqpxcntfmjr
-    4vzpsdreight337hgvq
-    jone4ccn8
-    nftdkmtmcz4
-    nlnineeightmndkqz8nineonenrqm
-    nrhdxfsqvxcbcghf35eightthreeseven5
+    sixdxpnthgkfmddvqhrvsixsevenx4q
+    ch29onepqnine
+    sixlnh68
+    1one5rqxz6nine7
+    cone9
+    fourseven3kddtmbjhnkz9kxhzspvtdngvsix
+    3sixnrjcxv1
+    onemdts29zrbh
+    4796
+    kzxfnrqktwohmp9cclstwo
     """
 
   func testPart1() throws {
@@ -22,6 +26,6 @@ final class Day01Tests: XCTestCase {
 
   func testPart2() throws {
     let challenge = Day01(data: testData)
-    XCTAssertEqual(String(describing: challenge.part2()), "42")
+    XCTAssertEqual(String(describing: challenge.part2()), "361")
   }
 }
