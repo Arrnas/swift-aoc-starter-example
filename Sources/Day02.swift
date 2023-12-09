@@ -43,6 +43,28 @@ struct Day02: AdventDay {
   }
 
   func part2() -> Any {
-    return 42
+    entities.compactMap { game in
+      let gameInstances = game.1.flatMap { bags in
+        var maxSet = ["green": 0, "red": 0, "blue": 0]
+        bags.forEach { (cubeColor, cubeNumber) in
+          if maxSet[cubeColor]! < cubeNumber {
+            maxSet[cubeColor] = cubeNumber
+          }
+        }
+        return maxSet
+      }
+      var maxSet = ["green": 0, "red": 0, "blue": 0]
+      gameInstances.forEach { (cubeColor, cubeNumber) in
+        if maxSet[cubeColor]! < cubeNumber {
+          maxSet[cubeColor] = cubeNumber
+        }
+      }
+      return maxSet
+    }.reduce(0) { partialResult, minCubeSet in
+      let minCubeProduct = minCubeSet.reduce(1) { partialResult, minColor in
+        partialResult * minColor.1
+      }
+      return partialResult + minCubeProduct
+    }
   }
 }
